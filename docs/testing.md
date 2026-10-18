@@ -10,15 +10,16 @@
 
 ## Running Tests
 
-- Run relevant tests after each change.
-- Run the full test suite with `sail artisan test` after completing a feature.
+- Run relevant tests after each change with `vendor/bin/sail artisan test`.
+- Run the full test suite with `vendor/bin/sail artisan test` after completing a feature. Use `vendor/bin/sail artisan test --compact` when compact output is preferred.
 - Report failed, skipped, or unexecuted tests honestly. Never claim tests passed unless they actually passed.
 
 ## Blog-Specific Requirements
 
 - Test that guests can read posts and comments but cannot create, edit, or delete them.
 - Test that authenticated users can manage their own posts and comments but cannot edit or delete another user's content.
-- Test required fields and the 255-character post title limit.
+- Test required fields, the 255-character post title limit, and that comment content is non-empty. No maximum comment length is specified.
+- For unauthorized actions, verify that access is denied and data remains unchanged; do not require a particular HTTP status code.
 - Test post-comment relationships and permanent deletion of comments when their post is deleted.
 - Test post pagination and ordering, with 10 newest posts per page and comments oldest first.
 
