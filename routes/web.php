@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,9 @@ Route::redirect('/', '/posts');
 Route::middleware('auth')->group(function () {
     Route::get('/my-posts', [PostController::class, 'myPosts'])->name('posts.mine');
     Route::resource('posts', PostController::class)->only(['create', 'store', 'edit', 'update', 'destroy']);
+    Route::resource('posts.comments', CommentController::class)
+        ->only(['store', 'edit', 'update', 'destroy'])
+        ->scoped();
 });
 
 Route::resource('posts', PostController::class)->only(['index', 'show']);

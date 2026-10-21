@@ -61,7 +61,7 @@ class PostController extends Controller
      */
     public function show(Post $post): View
     {
-        $post->load('author:id,name');
+        $post->load(['author:id,name', 'comments.author:id,name']);
 
         return view('posts.show', ['post' => $post]);
     }

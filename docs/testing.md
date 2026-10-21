@@ -18,7 +18,7 @@
 
 - Test that guests can read posts and comments but cannot create, edit, or delete them.
 - Test that authenticated users can manage their own posts and comments but cannot edit or delete another user's content.
-- Test required fields, the 255-character post title limit, and that comment content is non-empty. No maximum comment length is specified.
+- Test required fields, the 255-character post title limit, and that comment content is non-empty and no longer than 500 characters. Verify that 500 characters are accepted and 501 are rejected on create and update.
 - For unauthorized actions, verify that access is denied and data remains unchanged; do not require a particular HTTP status code.
 - Test post-comment relationships and permanent deletion of comments when their post is deleted.
 - Test post pagination and ordering, with 10 newest posts per page and comments oldest first.
