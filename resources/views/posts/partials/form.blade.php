@@ -1,4 +1,4 @@
-<form method="POST" action="{{ $post ? route('posts.update', $post) : route('posts.store') }}" class="space-y-6">
+<form method="POST" action="{{ $post ? route('posts.update', $post) : route('posts.store') }}" class="space-y-6 editorial-form">
     @csrf
     @if ($post)
         @method('PUT')
@@ -12,7 +12,7 @@
 
     <div>
         <x-input-label for="content" :value="__('Content')" />
-        <textarea id="content" name="content" rows="14" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600" required>{{ old('content', $post?->content) }}</textarea>
+        <textarea id="content" name="content" rows="14" class="field-control field-editor" required>{{ old('content', $post?->content) }}</textarea>
         <x-input-error class="mt-2" :messages="$errors->get('content')" />
     </div>
 

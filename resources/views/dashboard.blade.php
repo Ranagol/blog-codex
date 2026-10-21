@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <div><p class="section-kicker">{{ __('Your corner of the journal') }}</p><h2>
             {{ __('Dashboard') }}
-        </h2>
+        </h2></div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 page-container dashboard-page">
+            <div class="form-sheet dashboard-sheet">
+                <div class="dashboard-copy">
                     {{ __("You're logged in!") }}
                 </div>
             </div>

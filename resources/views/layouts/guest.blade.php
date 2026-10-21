@@ -14,17 +14,36 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <body class="font-sans text-gray-900 antialiased site-body">
+        <div class="min-h-screen guest-shell">
+            <aside class="guest-brand-panel">
+                <a href="{{ route('posts.index') }}" class="guest-wordmark"><x-application-logo class="guest-mark" /><span>The Margin</span></a>
+                <div class="guest-brand-copy">
+                    <p class="guest-kicker">AN OPEN JOURNAL</p>
+                    <p class="guest-manifesto">Ideas worth<br><em>staying with.</em></p>
+                    <p class="guest-caption">Stories, notes, and conversations from our community of writers.</p>
+                </div>
+                <span class="guest-index">INDEPENDENT WRITING &nbsp; / &nbsp; VOL. 01</span>
+            </aside>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+            <main class="guest-content">
+                <div class="guest-card">
+                    <div class="guest-heading">
+                        <p class="guest-kicker">MEMBER ACCESS</p>
+                        <h1 class="auth-title">
+                            @if (request()->routeIs('login')) {{ __('Welcome back') }}
+                            @elseif (request()->routeIs('register')) {{ __('Join the journal') }}
+                            @elseif (request()->routeIs('password.request')) {{ __('Reset your password') }}
+                            @elseif (request()->routeIs('password.reset')) {{ __('Choose a new password') }}
+                            @elseif (request()->routeIs('password.confirm')) {{ __('Confirm your password') }}
+                            @elseif (request()->routeIs('verification.notice')) {{ __('Verify your email') }}
+                            @else {{ __('Your account') }}
+                            @endif
+                        </h1>
+                    </div>
+                    {{ $slot }}
+                </div>
+            </main>
         </div>
     </body>
 </html>

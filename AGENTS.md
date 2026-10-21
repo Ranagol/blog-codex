@@ -173,6 +173,7 @@ The following documents are located in the docs/ directory:
 •	pages.md — page structure, content, and UI requirements.
 •	architecture.md — authoritative architecture and approved design decisions.
 •	tests.md — defined test cases and expected behavior.
+-   style.md - for defining style instructions
 Use these documents as the sources of truth for their respective subjects. If a document is missing, relevant instructions are unclear, or documents contradict each other or the codebase, report the issue and ask for clar-ification when necessary. Do not silently invent requirements or resolve consequential conflicts autonomous-ly.
 General Working Rules
 Inspect the relevant code and documentation before making changes. Follow existing project conventions and applicable documented decisions. Keep changes small, targeted, and limited to the approved task. Avoid un-related refactoring and unnecessary dependencies. Do not make consequential architectural or requirements decisions without approval. Protect existing project data and configuration.

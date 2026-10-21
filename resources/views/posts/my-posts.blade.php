@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">{{ __('My Posts') }}</h2>
-            <a href="{{ route('posts.create') }}" class="inline-flex items-center rounded-md bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white hover:bg-gray-700 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-white">{{ __('Write a post') }}</a>
+        <div class="flex flex-wrap items-end justify-between gap-4">
+            <div><p class="section-kicker">{{ __('Your writing desk') }}</p><h2>{{ __('My Posts') }}</h2></div>
+            <a href="{{ route('posts.create') }}" class="button-primary">{{ __('Write a post') }} <span aria-hidden="true">↗</span></a>
         </div>
     </x-slot>
 
     <div class="py-8 sm:py-12">
-        <div class="mx-auto max-w-7xl space-y-6 px-4 sm:px-6 lg:px-8">
-            @include('posts.partials.list', ['showOwnerActions' => true, 'emptyMessage' => __('You have not written any posts yet.')])
+        <div class="mx-auto max-w-7xl space-y-6 px-4 sm:px-6 lg:px-8 page-container journal-page">
+            <div class="posts-list">@include('posts.partials.list', ['showOwnerActions' => true, 'emptyMessage' => __('You have not written any posts yet.')])</div>
             <div>{{ $posts->links() }}</div>
         </div>
     </div>
